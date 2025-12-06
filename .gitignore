@@ -1,0 +1,23 @@
+# Django
+__pycache__
+.pyc
+
+# Virtual environment
+venv
+env
+
+# IDE
+.vscode
+.idea
+
+# Static files (optional)
+staticfiles
+
+# Local sensitive settings
+local_settings.py
+
+# Environment variables file
+.env
+
+# Media uploads
+media

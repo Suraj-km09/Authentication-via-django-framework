@@ -1,0 +1,72 @@
+# 1. Create project directory
+mkdir MyDjangoProject
+cd MyDjangoProject
+
+# 2. Create virtual environment
+python -m venv venv
+
+# 3. Activate virtual environment
+# For Windows:
+venv\Scripts\activate
+# For macOS/Linux:
+# source venv/bin/activate
+
+# 4. Install Django
+pip install django
+
+# 5. Freeze dependencies (optional)
+pip freeze > requirements.txt
+
+# 6. Create Django project
+django-admin startproject mysite .
+
+# 7. Run initial migrations
+python manage.py migrate
+
+# 8. Create superuser (for admin panel)
+python manage.py createsuperuser
+
+# 9. Run development server
+python manage.py runserver
+
+# 10. Create a new app (e.g., blog, services, accounts, etc.)
+python manage.py startapp myapp
+
+# 11. Register app in settings.py
+# Add 'myapp' to INSTALLED_APPS in mysite/settings.py
+
+# 12. Define models in myapp/models.py
+
+# 13. Make migrations for your app
+python manage.py makemigrations myapp
+
+# 14. Apply migrations to the database
+python manage.py migrate
+
+# 15. Register models in myapp/admin.py
+
+# 16. Add views and templates
+# - Define views in myapp/views.py
+# - Create templates in myapp/templates/
+
+# 17. Configure URLs
+# - Add app's urls.py
+# - Include it in mysite/urls.py using path('', include('myapp.urls'))
+
+# 18. Collect static files (if needed)
+python manage.py collectstatic
+
+# 19. Optional: Install other useful packages
+# pip install django-crispy-forms
+# pip install pillow
+
+# 20. To deactivate virtual environment
+deactivate
+
+
+cd emp_management
+
+
+usernname = admin@auth
+emails = suraj01casual@gmail.com
+passward =  auth@123

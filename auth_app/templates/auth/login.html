@@ -1,0 +1,43 @@
+{% extends "layouts/app.html" %}
+{% block title %}Login — AuthApp{% endblock %}
+
+{% block content %}
+<div class="card" style="max-width:400px; margin:60px auto;">
+
+  <h2 class="text-center">Login</h2>
+  <p class="muted text-center" style="margin-bottom:2rem;">Sign in with your username and password.</p>
+
+  <form method="post" novalidate>
+    {% csrf_token %}
+    <span style="color:#dc3545; font-size:0.9rem;">{{ form.non_field_errors }}</span>
+
+    <!-- Username Field -->
+    <div class="form-group">
+      <label for="id_username">Username</label>
+      {{ form.username }}
+      {% if form.username.errors %}
+        <div class="msg msg-error" style="color:#dc3545; font-size:0.875rem; margin-top:0.25rem;">{{ form.username.errors|striptags }}</div>
+      {% endif %}
+    </div>
+
+    <!-- Password Field -->
+    <div class="form-group">
+      <label for="id_password">Password</label>
+      {{ form.password }}
+      {% if form.password.errors %}
+        <div class="msg msg-error" style="color:#dc3545; font-size:0.875rem; margin-top:0.25rem;">{{ form.password.errors|striptags }}</div>
+      {% endif %}
+    </div>
+
+    <input type="hidden" name="next" value="{{ request.GET.next|default:'' }}">
+
+    <button type="submit" class="btn-primary" style="width:100%; margin-top:1rem;">Continue</button>
+  </form>
+
+  <div class="text-center" style="margin-top:2rem; color:#666; font-size:1rem;">
+    <a href="{% url 'auth_app:request_otp' %}" style="text-decoration:none; margin-right:2rem;"><u>Continue with OTP</u></a>
+    <a href="{% url 'auth_app:register' %}" style="text-decoration:none;"><u>Create account</u></a>
+  </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,24 @@
+
+{% extends "layouts/app.html" %}
+{% block title %}Request OTP — AuthApp{% endblock %}
+
+{% block content %}
+<div class="card" style="max-width:520px;">
+  <h2>Request Login OTP</h2>
+  <p class="muted">Enter the email where we'll send a one-time OTP to log you in.</p>
+
+  {% if error %}<div class="msg msg-error">{{ error }}</div>{% endif %}
+
+  <form method="post">
+    {% csrf_token %}
+    <label>Email</label>
+    <input type="email" name="email" required />
+    <button type="submit">Send OTP</button>
+  </form><br>
+
+  <div class="toplinks muted">
+    Want to create account? <a href="{% url 'auth_app:register' %}">Register</a>
+  </div>
+</div>
+{% endblock %}
+

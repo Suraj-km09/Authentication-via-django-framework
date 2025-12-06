@@ -1,0 +1,23 @@
+
+{% extends "layouts/app.html" %}
+{% block title %}Verify OTP — AuthApp{% endblock %}
+
+{% block content %}
+<div class="card" style="max-width:520px;">
+  <h2>Enter OTP</h2>
+  <p class="muted">Type the OTP sent to your email to sign in.</p>
+
+  {% if error %}<div class="msg msg-error">{{ error }}</div>{% endif %}
+
+  <form method="post">
+    {% csrf_token %}
+    <label>OTP</label>
+    <input type="text" name="code" maxlength="6" required />
+    <button type="submit">Verify & Sign In</button>
+  </form><br>
+
+  <div class="toplinks muted">
+    Back to <a href="{% url 'auth_app:login' %}">Login</a>
+  </div>
+</div>
+{% endblock %}
